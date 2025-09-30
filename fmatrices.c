@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "fmatrices.h"
 
-
 //otras funciones
 void mostrarMat(int c , int f, float mat[][f]){
     int i,j;
@@ -27,16 +26,13 @@ void mostrarMatEnt(int c , int f, int mat[][f]){
 
 
 //ej 1.12
-float sumarEncimaDiag(int c, int f, float mat[][f]){
-    if(c!=f)
-       return -1;
+float sumarEncimaDiag(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=0; i<c; i++){
-
-        for(j=i+1;j<f;j++){
+    for(i=0; i<n; i++){
+        for(j=i+1;j<n;j++){
             suma+= mat[i][j];
         }
     }
@@ -46,16 +42,14 @@ float sumarEncimaDiag(int c, int f, float mat[][f]){
 
 
 }
-float sumEncimaydiag(int c, int f, float mat[][f]){
-    if(c!=f)
-       return -1;
+float sumEncimaydiag(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=0; i<c; i++){
+    for(i=0; i<n; i++){
 
-        for(j=i;j<f;j++){
+        for(j=i;j<n;j++){
             suma+= mat[i][j];
         }
     }
@@ -64,14 +58,12 @@ float sumEncimaydiag(int c, int f, float mat[][f]){
 
 }
 
-float sumarDebajodiag (int c, int f, float mat[][f]){
-    if(c!= f)
-        return -1;
+float sumarDebajodiag (int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=1; i<c; i++){
+    for(i=1; i<n; i++){
         for(j=0; j<i;j++){
             suma += mat[i][j];
         }
@@ -81,14 +73,12 @@ float sumarDebajodiag (int c, int f, float mat[][f]){
 
 
 }
-float sumarDebajoyDiag(int c, int f, float mat[][f]){
-    if(c!= f)
-        return -1;
+float sumarDebajoyDiag(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=0; i<c; i++){
+    for(i=0; i<n; i++){
         for(j=0; j<i+1;j++){
             suma += mat[i][j];
         }
@@ -97,15 +87,13 @@ float sumarDebajoyDiag(int c, int f, float mat[][f]){
     return suma;
 }
 
-float sumEncimaDiagSec(int c, int f , float mat[][f]){
-    if(c!=f)
-        return -1;
+float sumEncimaDiagSec(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=0; i<c;i++){
-        for(j=0; j<f-1-i; j++){
+    for(i=0; i<n;i++){
+        for(j=0; j<n-1-i; j++){
             suma+= mat[i][j];
         }
     }
@@ -113,31 +101,26 @@ float sumEncimaDiagSec(int c, int f , float mat[][f]){
     return suma;
 }
 
-float sumEncimayDiagSec(int c, int f, float mat[][f]){
-
-    if(c!=f)
-        return -1;
+float sumEncimayDiagSec(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=0; i<c;i++){
-        for(j=0; j<f-i; j++){
+    for(i=0; i<n;i++){
+        for(j=0; j<n-i; j++){
             suma+= mat[i][j];
         }
     }
     return suma;
 }
 
-float sumDebajoDiagSec(int c, int f, float mat[][f]){
-    if(c!=f)
-        return -1;
+float sumDebajoDiagSec(int n, float mat[][n]){
 
     int i, j;
     float suma=0;
 
-    for(i=1; i<f;i++){
-        for(j=f-i; j<c;j++){
+    for(i=1; i<n;i++){
+        for(j=n-i; j<n;j++){
             suma+= mat[i][j];
         }
     }
@@ -147,14 +130,13 @@ float sumDebajoDiagSec(int c, int f, float mat[][f]){
 
 }
 
-float sumDebajoyDiagSec(int c, int f, float mat[][f]){
-    if(c!=f)
-        return -1;
+float sumDebajoyDiagSec(int n,float mat[][n]){
+
 
     int i, j;
     float suma=0;
-    for(i=0; i<f;i++){
-        for(j=f-i-1; j<c;j++){
+    for(i=0; i<n;i++){
+        for(j=n-i-1; j<n;j++){
             suma+= mat[i][j];
         }
     }
@@ -166,30 +148,24 @@ float sumDebajoyDiagSec(int c, int f, float mat[][f]){
 
 
 //ej 1.13
-int sumdiag(int c, int f, int mat[][f]){
-    if(c!=f ){
-        return -1;
-    }
+int sumdiag(int n, int mat[][n]){
     int i;
     int suma=0;
 
-    for(i=0;i<f;i++){
+    for(i=0;i<n;i++){
         suma+= mat[i][i];
     }
 
 
     return suma;
 }
-int sumadiagSec(int c, int f, int mat[][f]){
-    if(c!=f){
-        return -1;
-    }
+int sumadiagSec(int n, int mat[][n]){
 
     int i;
     int j =0;
     int suma=0;
 
-    for(i=f-1; i>=0; i--){
+    for(i=n-1; i>=0; i--){
         suma+= mat[j][i];
 
         j++;
@@ -204,28 +180,25 @@ int sumadiagSec(int c, int f, int mat[][f]){
 
 // ej 1.14
 
-int esDiagonal(int c, int f, int mat[][f]){
-    if(c!=f){
-        return -1;
-    }
+int esDiagonal(int n, int mat[][n]){
     int i,j;
     //recorre diagonal
-    for(i=0;i<f;i++){
+    for(i=0;i<n;i++){
         if(mat[i][i] ==0)
             return 0;
     }
 
     //debajo de la diag
-    for(i=1; i<c; i++){
+    for(i=1; i<n; i++){
         for(j=0; j<i;j++){
             if(mat[i][j]!=0 )
                 return 0;
         }
     }
     //encima diag
-    for(i=0; i<c; i++){
+    for(i=0; i<n; i++){
 
-        for(j=i+1;j<f;j++){
+        for(j=i+1;j<n;j++){
             if(mat[i][j]!=0)
                 return 0;
         }
@@ -238,28 +211,26 @@ int esDiagonal(int c, int f, int mat[][f]){
 }
 
 //ejercicio 1.15
-int esIdentidad(int c, int f, int mat[][f]){
-    if(c!=f){
-        return -1;
-    }
+int esIdentidad(int n, int mat[][n]){
+
     int i,j;
     //recorre diagonal
-    for(i=0;i<f;i++){
+    for(i=0;i<n;i++){
         if(mat[i][i] !=1)
             return 0;
     }
 
     //debajo de la diag
-    for(i=1; i<c; i++){
+    for(i=1; i<n; i++){
         for(j=0; j<i;j++){
             if(mat[i][j]!=0 )
                 return 0;
         }
     }
     //encima diag
-    for(i=0; i<c; i++){
+    for(i=0; i<n; i++){
 
-        for(j=i+1;j<f;j++){
+        for(j=i+1;j<n;j++){
             if(mat[i][j]!=0)
                 return 0;
         }
@@ -272,15 +243,14 @@ int esIdentidad(int c, int f, int mat[][f]){
 }
 
 //ej 1.16
-int esSimetrica(int c, int f, int mat[][f]){
-    if(c!=f)
-        return -1;
+int esSimetrica(int n, int mat[][n]){
+
 
 
     // para que se cumpla la matriz ademas de cuadrada debe ser igual a su matriz espejada osea la transpuesta
     int i, j;
-    for(i=1; i<c;i++){
-        for(j=0; j<c-1 ; j++){
+    for(i=1; i<n;i++){
+        for(j=0; j<n-1 ; j++){
             if(mat[i][j] != mat[j][i])
                 return 0;
         }
@@ -291,14 +261,11 @@ int esSimetrica(int c, int f, int mat[][f]){
 }
 
 //ej 1.17
-void trasponerCuad(int c, int f, int mat[][f]){
-    if(c!=f){
+void trasponerCuad(int n, int mat[][n]){
 
-        exit(1);
-    }
     int i, j, aux;
-    for(i=1; i<c;i++){
-        for(j=0;j<c-1;j++){
+    for(i=1; i<n;i++){
+        for(j=0;j<n-1;j++){
             aux = mat[i][j];
             mat[i][j] = mat[j][i];
             mat[j][i] = aux;
@@ -307,3 +274,36 @@ void trasponerCuad(int c, int f, int mat[][f]){
 
 
 }
+//ej 1.18
+void transponerMat(int c, int f, int mat[][f], int matresult[][c]){
+
+    int i, j;
+    for(i=0; i<f; i++){
+        for(j=0;j<c;j++){
+            matresult[i][j]= mat[j][i];
+        }
+    }
+
+}
+
+//ej 1.19
+void multMatriz(int c1, int f1, int mat1[][f1], int c2, int f2, int mat2[][f2], int resultado[c1][f2]){
+    if(f1!=c2)
+        return;
+    int i, j,k;
+
+    for(i=0;i<c1;i++){
+        for(j=0;j<f2;j++){
+            resultado[i][j] =0;
+            for(k=0;k<f1;k++)
+                resultado[i][j] += mat1[i][k]* mat2[k][j];
+        }
+    }
+
+
+}
+
+//ej 1.20
+
+
+
